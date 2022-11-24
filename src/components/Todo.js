@@ -43,6 +43,7 @@ function Todo() {
                     <button
                         className="edit-btn add-btn"
                         onClick={addTodohandler}
+
                     >
                         Add
                     </button>
@@ -80,7 +81,10 @@ function Todo() {
                         <p className="todo-title">{todo.title}</p>
                         <div>
                             <CiSquareRemove
-                                onClick={() => dispatch(removeTodo(todo.title))}
+                                onClick={() => {
+                                    dispatch(removeTodo(todo.title))
+                                    localStorage.setItem('list', todos)
+                                }}
                                 className="delete-btn"
                             />
                             <RiEditBoxLine
